@@ -1,55 +1,58 @@
-package me.rolandliedtke;
+package me.rolandliedtke.service;
 
-import org.example.Interface.DrinkInterface;
-import org.example.Model.Beverage;
+
+import me.rolandliedtke.interfaces.DrinkInterface;
+import me.rolandliedtke.model.Drink;
+import me.rolandliedtke.model.DrinkAdditions;
+import me.rolandliedtke.model.DrinkSize;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class TeaService implements DrinkInterface {
-    private List<String> additions;
-    private Beverage beverage;
+    private List<DrinkAdditions> drinkAdditions;
+    private Drink drink;
 
-    public TeaService(Beverage beverage) {
-        this.beverage = beverage;
-        this.additions = new ArrayList<>();
+    public TeaService(Drink drink) {
+        this.drink = drink;
+        this.drinkAdditions = new ArrayList<>();
     }
 
     @Override
     public String order() {
-        return "Order placed for a " + beverage.getSize() + " " + beverage.getType() + " with additions: " + additions;
+        return "Order placed for a " + drink.getDrinkSize() + " " + drink.getDrinkType() + " with additions: " + drinkAdditions;
     }
 
     @Override
-    public void chooseSize(String size) {
-        this.beverage.setSize(size);
+    public void chooseSize(DrinkSize drinkSize) {
+        this.drink.setDrinkSize(drinkSize);
     }
 
     @Override
-    public void chooseAdditions(List<String> additions) {
-        this.additions = additions;
-        this.additions.forEach(this.beverage::addAddition);
+    public void chooseAdditions(List<DrinkAdditions> drinkAdditions) {
+        this.drinkAdditions = drinkAdditions;
+        this.drinkAdditions.forEach(drinkAddition -> drink.getDrinkAdditions().add(drinkAddition));
     }
 
     @Override
     public void calculatePrice() {
         double basePrice = 7;
-        if (beverage.getSize().equals("L")) {
+        if (drink.getDrinkSize().equals(DrinkSize.M)) {
             basePrice += 2;
-        } else if (beverage.getSize().equals("S")) {
+        } else if (drink.getDrinkSize().equals(DrinkSize.S)) {
             basePrice -= 1;
         }
-        for (String addition : this.additions) {
-            if (addition.equals("lemon")) {
+        for (DrinkAdditions addition : this.drinkAdditions) {
+            if (addition.equals(DrinkAdditions.LEMON)) {
                 basePrice += 2;
             } 
-            if (addition.equals("honey")) {
+            if (addition.equals(DrinkAdditions.HONEY)) {
                 basePrice += 1;
             } 
-            if (addition.equals("sugar")) {
+            if (addition.equals(DrinkAdditions.SUGAR)) {
                 basePrice += 1;
             }
         }
-        beverage.setPrice(basePrice);
+        drink.setPrice(basePrice);
     }
 }

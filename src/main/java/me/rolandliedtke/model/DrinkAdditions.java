@@ -1,5 +1,5 @@
 package me.rolandliedtke.model;
 
 public enum DrinkAdditions {
-    milk, sugar, honey, lemon
+    MILK, SUGAR, HONEY, LEMON
 }

@@ -13,5 +13,5 @@ public class Drink {
     private DrinkType drinkType;
     private DrinkSize drinkSize;
     private double price;
-    private List<DrinkAdditions> additions;
+    private List<DrinkAdditions> drinkAdditions;
 }

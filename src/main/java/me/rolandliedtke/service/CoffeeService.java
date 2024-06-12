@@ -30,7 +30,7 @@ public class CoffeeService implements DrinkInterface {
     @Override
     public void chooseAdditions(List<DrinkAdditions> drinkAdditions) {
         this.drinkAdditions = drinkAdditions;
-        this.drinkAdditions.forEach(drinkAddition -> drink.getAdditions().add(drinkAddition));
+        this.drinkAdditions.forEach(drinkAddition -> drink.getDrinkAdditions().add(drinkAddition));
     }
 
     @Override
@@ -42,14 +42,14 @@ public class CoffeeService implements DrinkInterface {
             basePrice -= 1;
         }
         for (DrinkAdditions addition : this.drinkAdditions) {
-            if (addition.equals(DrinkAdditions.milk)) {
+            if (addition.equals(DrinkAdditions.MILK)) {
                 basePrice += 2;
             } 
 
-            if (addition.equals(DrinkAdditions.sugar)) {
+            if (addition.equals(DrinkAdditions.SUGAR)) {
                 basePrice += 1;
             } 
-            if (addition.equals(DrinkAdditions.honey)) {
+            if (addition.equals(DrinkAdditions.HONEY)) {
                 basePrice += 1;
             }
         }
