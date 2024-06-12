@@ -1,4 +1,4 @@
-package me.rolandliedtke.interfaces;
+package me.rolandliedtke.interfaces.drink;
 
 public interface DrinkAdditions {
 

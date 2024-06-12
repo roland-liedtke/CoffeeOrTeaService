@@ -1,5 +1,6 @@
-package me.rolandliedtke.interfaces;
+package me.rolandliedtke.interfaces.drink;
 
+import me.rolandliedtke.interfaces.drink.DrinkAdditions;
 import me.rolandliedtke.model.drink.Drink;
 import me.rolandliedtke.model.drink.DrinkSize;
 import me.rolandliedtke.model.drink.DrinkType;

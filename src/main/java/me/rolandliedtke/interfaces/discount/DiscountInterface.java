@@ -1,4 +1,4 @@
-package me.rolandliedtke.interfaces;
+package me.rolandliedtke.interfaces.discount;
 
 import me.rolandliedtke.model.discount.DiscountCode;
 import me.rolandliedtke.model.drink.Drink;
