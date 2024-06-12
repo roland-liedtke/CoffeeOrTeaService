@@ -1,14 +1,16 @@
-package me.rolandliedtke;
+package me.rolandliedtke.service;
 
-import org.example.Interface.ReduceInterface;
-import org.example.Model.Beverage;
+
+import me.rolandliedtke.interfaces.ReduceInterface;
+import me.rolandliedtke.model.Drink;
+import me.rolandliedtke.model.DrinkType;
 
 public class DiscountService implements ReduceInterface {
     
-    public void applyDiscount(Beverage beverage, String discountCode) {
-        if (beverage.getType().equalsIgnoreCase("Tea") && discountCode.equals("TEA10")) {
-            double a = 0.90 * beverage.getPrice();
-            beverage.setPrice(a);
+    public void applyDiscount(Drink drink, String discountCode) {
+        if (drink.getDrinkType().equals(DrinkType.TEA) && discountCode.equals("TEA10")) {
+            double a = 0.90 * drink.getPrice();
+            drink.setPrice(a);
         }
     }
 }
