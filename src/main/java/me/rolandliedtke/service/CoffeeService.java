@@ -10,7 +10,7 @@ import java.util.List;
 
 public class CoffeeService implements DrinkInterface {
     private List<DrinkAdditions> drinkAdditions;
-    private Drink drink;
+    private final Drink drink;
 
     public CoffeeService(Drink drink) {
         this.drink = drink;
