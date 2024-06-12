@@ -1,7 +1,10 @@
 package me.rolandliedtke.interfaces;
 
+import me.rolandliedtke.model.DiscountCode;
 import me.rolandliedtke.model.Drink;
 
 public interface ReduceInterface {
-    void applyDiscount(Drink drink, String discountCode);
+
+    // Interfejs obsługujący zniżkę po wpisaniu kodu
+    void applyDiscount(Drink drink, DiscountCode discountCode);
 }

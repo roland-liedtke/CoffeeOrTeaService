@@ -6,6 +6,8 @@ import me.rolandliedtke.model.DrinkSize;
 import java.util.List;
 
 public interface DrinkInterface {
+
+    // Interfejs
     String order();
 
     void chooseSize(DrinkSize drinkSize);

@@ -1,9 +1,9 @@
 package me.rolandliedtke.model;
 
 public enum DrinkSize {
-    S(5), M(10), L(15);
+    S(5.0), M(10.0), L(15.0);
 
-    DrinkSize(Integer price) {
+    DrinkSize(double price) {
 
     }
 }
