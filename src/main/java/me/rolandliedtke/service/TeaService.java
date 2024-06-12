@@ -1,58 +1,32 @@
 package me.rolandliedtke.service;
 
+import me.rolandliedtke.interfaces.drink.DrinkInterface;
+import me.rolandliedtke.interfaces.drink.DrinkAdditions;
+import me.rolandliedtke.model.coffee.CoffeeAdditions;
+import me.rolandliedtke.model.drink.DrinkSize;
 
-import me.rolandliedtke.interfaces.DrinkInterface;
-import me.rolandliedtke.model.Drink;
-import me.rolandliedtke.model.DrinkAdditions;
-import me.rolandliedtke.model.DrinkSize;
-
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 public class TeaService implements DrinkInterface {
-    private List<DrinkAdditions> drinkAdditions;
-    private Drink drink;
 
-    public TeaService(Drink drink) {
-        this.drink = drink;
-        this.drinkAdditions = new ArrayList<>();
+    private final Scanner scanner = new Scanner(System.in);
+
+    @Override
+    public List<DrinkAdditions> chooseAdditions() {
+        List<DrinkAdditions> coffeeAdditions = new ArrayList<>();
+
+        // Zaimplementuj dodawanie dodatków
+        coffeeAdditions.add(CoffeeAdditions.MILK);
+        return coffeeAdditions;
     }
 
     @Override
-    public String order() {
-        return "Order placed for a " + drink.getDrinkSize() + " " + drink.getDrinkType() + " with additions: " + drinkAdditions;
-    }
+    public Double calculatePrice(DrinkSize drinkSize, List<DrinkAdditions> drinkAdditions) {
+        double additionsPrice = drinkAdditions.stream()
+                .map(DrinkAdditions::getValue)
+                .mapToDouble(v -> v)
+                .sum();
 
-    @Override
-    public void chooseSize(DrinkSize drinkSize) {
-        this.drink.setDrinkSize(drinkSize);
-    }
-
-    @Override
-    public void chooseAdditions(List<DrinkAdditions> drinkAdditions) {
-        this.drinkAdditions = drinkAdditions;
-        this.drinkAdditions.forEach(drinkAddition -> drink.getDrinkAdditions().add(drinkAddition));
-    }
-
-    @Override
-    public void calculatePrice() {
-        double basePrice = 7;
-        if (drink.getDrinkSize().equals(DrinkSize.M)) {
-            basePrice += 2;
-        } else if (drink.getDrinkSize().equals(DrinkSize.S)) {
-            basePrice -= 1;
-        }
-        for (DrinkAdditions addition : this.drinkAdditions) {
-            if (addition.equals(DrinkAdditions.LEMON)) {
-                basePrice += 2;
-            } 
-            if (addition.equals(DrinkAdditions.HONEY)) {
-                basePrice += 1;
-            } 
-            if (addition.equals(DrinkAdditions.SUGAR)) {
-                basePrice += 1;
-            }
-        }
-        drink.setPrice(basePrice);
+        return drinkSize.value + additionsPrice;
     }
 }
