@@ -1,4 +1,4 @@
-package me.rolandliedtke.model;
+package me.rolandliedtke.model.drink;
 
 public enum DrinkType {
     COFFEE, TEA
