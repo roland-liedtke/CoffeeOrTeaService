@@ -1,4 +1,4 @@
-package me.rolandliedtke.service;
+package me.rolandliedtke.interfaces;
 
 import me.rolandliedtke.model.Drink;
 
