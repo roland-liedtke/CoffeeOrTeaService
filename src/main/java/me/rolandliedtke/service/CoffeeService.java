@@ -24,6 +24,8 @@ public class CoffeeService implements DrinkInterface {
         switch (scanner.nextLine()) {
             case "MILK", "Milk", "milk" -> coffeeAdditions.add(CoffeeAdditions.MILK);
             case "SUGAR", "Sugar", "sugar" -> coffeeAdditions.add(CoffeeAdditions.SUGAR);
+            case "CINNAMON", "Cinnamon", "cinnamon" -> coffeeAdditions.add(CoffeeAdditions.CINNAMON);
+            case "COFFEE CREAM", "Coffee cream", "coffee cream" -> coffeeAdditions.add(CoffeeAdditions.COFFEE_CREAM);
             default -> {
             }
         };

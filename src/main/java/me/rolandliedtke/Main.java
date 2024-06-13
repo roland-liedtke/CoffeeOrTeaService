@@ -8,8 +8,6 @@ import me.rolandliedtke.service.TeaService;
 
 import java.util.Scanner;
 
-import static me.rolandliedtke.service.SavingFileService.saveOrder;
-
 public class Main {
     public static void main(String[] args) {
 
@@ -29,9 +27,6 @@ public class Main {
         // Odpowiedni service zgodnie z wyborem napoju
         if (drinkType.equals(DrinkType.COFFEE)) {
             drinkInterface = new CoffeeService();
-
-            // Statyczna metoda zapisuje tekst do pliku
-
         } else {
             drinkInterface = new TeaService();
         }

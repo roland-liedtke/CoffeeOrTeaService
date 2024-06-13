@@ -24,6 +24,7 @@ public class TeaService implements DrinkInterface {
         switch (scanner.nextLine()) {
             case "HONEY", "Honey", "honey" -> teaAdditions.add(TeaAdditions.HONEY);
             case "LEMON", "Lemon", "lemon" -> teaAdditions.add(TeaAdditions.LEMON);
+            case "SUGAR", "Sugar", "sugar" -> teaAdditions.add(TeaAdditions.SUGAR);
             default -> {
             }
         };
