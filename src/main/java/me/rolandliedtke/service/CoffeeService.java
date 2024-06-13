@@ -18,7 +18,6 @@ public class CoffeeService implements DrinkInterface {
 
         System.out.println("Available additions: ");
 
-        // przenieś do prywatnej metody
         Arrays.stream(CoffeeAdditions.values()).forEach(System.out::println);
 
         switch (scanner.nextLine()) {
