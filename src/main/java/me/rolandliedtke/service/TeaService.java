@@ -2,7 +2,6 @@ package me.rolandliedtke.service;
 
 import me.rolandliedtke.interfaces.drink.DrinkInterface;
 import me.rolandliedtke.interfaces.drink.DrinkAdditions;
-import me.rolandliedtke.model.coffee.CoffeeAdditions;
 import me.rolandliedtke.model.drink.DrinkSize;
 import me.rolandliedtke.model.tea.TeaAdditions;
 
@@ -10,7 +9,13 @@ import java.util.*;
 
 public class TeaService implements DrinkInterface {
 
-    private final Scanner scanner = new Scanner(System.in);
+    Scanner scanner = new Scanner(System.in);
+
+    @Override
+    public String getCoupon() {
+        System.out.println("Enter discount code (e.g., DISCOUNT_10):");
+        return scanner.nextLine();
+    }
 
     @Override
     public List<DrinkAdditions> chooseAdditions() {
@@ -27,7 +32,7 @@ public class TeaService implements DrinkInterface {
             case "SUGAR", "Sugar", "sugar" -> teaAdditions.add(TeaAdditions.SUGAR);
             default -> {
             }
-        };
+        }
         System.out.println("Your choice: " + teaAdditions);
 
         return teaAdditions;
@@ -39,9 +44,7 @@ public class TeaService implements DrinkInterface {
                 .map(DrinkAdditions::getValue)
                 .mapToDouble(v -> v)
                 .sum();
-        double totalPrice = drinkSize.price + additionsPrice;
-        System.out.println("Total price: " + totalPrice);
 
-        return totalPrice;
+        return drinkSize.price + additionsPrice;
     }
 }

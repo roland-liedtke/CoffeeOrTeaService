@@ -4,13 +4,17 @@ import me.rolandliedtke.interfaces.drink.DrinkAdditions;
 import me.rolandliedtke.interfaces.drink.DrinkInterface;
 import me.rolandliedtke.model.coffee.CoffeeAdditions;
 import me.rolandliedtke.model.drink.DrinkSize;
-import me.rolandliedtke.model.drink.DrinkType;
 
 import java.util.*;
 
 public class CoffeeService implements DrinkInterface {
 
     private final Scanner scanner = new Scanner(System.in);
+
+    @Override
+    public String getCoupon() {
+        return "";
+    }
 
     @Override
     public List<DrinkAdditions> chooseAdditions() {
@@ -27,7 +31,7 @@ public class CoffeeService implements DrinkInterface {
             case "COFFEE CREAM", "Coffee cream", "coffee cream" -> coffeeAdditions.add(CoffeeAdditions.COFFEE_CREAM);
             default -> {
             }
-        };
+        }
         System.out.println("Your choice: " + coffeeAdditions);
 
         return coffeeAdditions;
@@ -39,9 +43,6 @@ public class CoffeeService implements DrinkInterface {
                 .map(DrinkAdditions::getValue)
                 .mapToDouble(v -> v)
                 .sum();
-        double totalPrice = drinkSize.price + additionsPrice;
-        System.out.println("Total price: " + totalPrice);
-
-        return totalPrice;
+        return drinkSize.price + additionsPrice;
     }
 }

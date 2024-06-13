@@ -15,5 +15,5 @@ public interface DiscountInterface {
      * @param discountCode the discount code that determines the discount to be applied
      * @return value of discount
      */
-    Double applyDiscount(String discountCode);
+    Double getDiscount(String discountCode);
 }
