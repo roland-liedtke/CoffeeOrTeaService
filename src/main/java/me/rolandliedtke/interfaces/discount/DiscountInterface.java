@@ -15,8 +15,9 @@ public interface DiscountInterface {
     /**
      * Applies a discount to the specified drink based on the given discount code.
      *
-     * @param drink the drink to which the discount will be applied
+     * @param drink        the drink to which the discount will be applied
      * @param discountCode the discount code that determines the discount to be applied
+     * @return value of discount
      */
-    void applyDiscount(Drink drink, DiscountCode discountCode);
+    Double applyDiscount(Drink drink, DiscountCode discountCode);
 }

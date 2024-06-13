@@ -38,7 +38,9 @@ public class CoffeeService implements DrinkInterface {
                 .map(DrinkAdditions::getValue)
                 .mapToDouble(v -> v)
                 .sum();
+        double totalPrice = drinkSize.price + additionsPrice;
+        System.out.println("Total price: " + totalPrice);
 
-        return drinkSize.value + additionsPrice;
+        return totalPrice;
     }
 }

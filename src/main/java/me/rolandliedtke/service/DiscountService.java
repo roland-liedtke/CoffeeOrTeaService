@@ -7,11 +7,13 @@ import me.rolandliedtke.model.drink.Drink;
 import me.rolandliedtke.model.drink.DrinkType;
 
 public class DiscountService implements DiscountInterface {
-    
-    public void applyDiscount(Drink drink, DiscountCode discountCode) {
+
+    public Double applyDiscount(Drink drink, DiscountCode discountCode) {
+        double totalPrice = drink.getPrice();
         if (drink.getDrinkType().equals(DrinkType.TEA)) {
-            double totalPrice = drink.getPrice() - (drink.getPrice() * discountCode.value);
+            totalPrice = drink.getPrice() - (drink.getPrice() * discountCode.value);
             drink.setPrice(totalPrice);
         }
+        return totalPrice;
     }
 }
