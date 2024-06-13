@@ -1,4 +1,4 @@
-# Coffee Or Tea Machine
+# CoffeeOrTeaService
 
 ##
  - [x] Stwórz aplikacje do robienia kawy lub herbaty w rozmiarze S, M, L.
