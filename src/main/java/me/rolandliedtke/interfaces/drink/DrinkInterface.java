@@ -29,7 +29,8 @@ public interface DrinkInterface{
         Double totalPrice = calculatePrice(drinkSize, drinkAdditions);
         Drink drink = new Drink(DrinkType.COFFEE, drinkSize, totalPrice, drinkAdditions);
 
-        return "Order placed for a " + drink.getDrinkSize() + " " + drink.getDrinkType() + " with additions: " + drinkAdditions;
+        String result = "Your order: " + drink.getDrinkType() + " " + drink.getDrinkSize() + ", additions: " + drinkAdditions + ", total price: " + drink.getPrice();
+        return result;
     }
 
     /**

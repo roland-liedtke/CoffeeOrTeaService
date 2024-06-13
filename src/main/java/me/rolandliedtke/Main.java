@@ -3,9 +3,12 @@ package me.rolandliedtke;
 import me.rolandliedtke.interfaces.drink.DrinkInterface;
 import me.rolandliedtke.model.drink.DrinkType;
 import me.rolandliedtke.service.CoffeeService;
+import me.rolandliedtke.service.SavingFileService;
 import me.rolandliedtke.service.TeaService;
 
 import java.util.Scanner;
+
+import static me.rolandliedtke.service.SavingFileService.saveOrder;
 
 public class Main {
     public static void main(String[] args) {
@@ -26,10 +29,13 @@ public class Main {
         // Odpowiedni service zgodnie z wyborem napoju
         if (drinkType.equals(DrinkType.COFFEE)) {
             drinkInterface = new CoffeeService();
+
+            // Statyczna metoda zapisuje tekst do pliku
+
         } else {
             drinkInterface = new TeaService();
         }
 
-        drinkInterface.order();
+        SavingFileService.saveOrder(drinkInterface.order());
     }
 }
