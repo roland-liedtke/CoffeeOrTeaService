@@ -23,7 +23,7 @@ W tym celu stwórz Interface o nazwie „Drink Interface” który udostępni cz
 
  - [x] Stwórz Interface o nazwie „Reduce Interface” ( -> DiscountInterface), który przyjmuje kod (String) i zwraca % zniżki na zamówienie.
 
- - [ ] Następnie Stwórz drugi projekt, a w nim serwis który będzie implementował ten Interface i tam obsłuż wyjątki takie jak „Niepoprawny kod” albo „Kod uległ przedawnieniu”.
+ - [x] Następnie Stwórz drugi projekt, a w nim serwis który będzie implementował ten Interface i tam obsłuż wyjątki takie jak „Niepoprawny kod” albo „Kod uległ przedawnieniu”.
 
  - [x] Listę kodów i zniżki procentowe możesz zapisać w formie enumów.
  - [x] Po każdym zamówieniu dopisz do pliku Orders.txt dane nowego zamówienia, wraz z naliczoną zniżką.

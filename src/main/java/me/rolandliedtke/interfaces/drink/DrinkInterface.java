@@ -23,7 +23,7 @@ public interface DrinkInterface{
      *
      * @return a string describing the placed order
      */
-    default String order() {
+    default String order(DrinkType drinkType) {
 
         DiscountService discountService = new DiscountService();
         // ROZMIAR
@@ -40,7 +40,7 @@ public interface DrinkInterface{
         
         // CENA ZE ZNIŻKĄ
         Double totalPrice = calculateDiscount(subTotalPrice, couponValue);
-        Drink drink = new Drink(DrinkType.COFFEE, drinkSize, totalPrice, drinkAdditions);
+        Drink drink = new Drink(drinkType, drinkSize, totalPrice, drinkAdditions);
 
         System.out.printf("Your order: %s %s, additions: %s, total price: %s, discount: %s%n", drink.getDrinkType(), drink.getDrinkSize(), drinkAdditions, drink.getPrice(), couponValue);
 

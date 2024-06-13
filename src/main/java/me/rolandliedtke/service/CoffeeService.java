@@ -24,14 +24,19 @@ public class CoffeeService implements DrinkInterface {
 
         Arrays.stream(CoffeeAdditions.values()).forEach(System.out::println);
 
-        switch (scanner.nextLine()) {
-            case "MILK", "Milk", "milk" -> coffeeAdditions.add(CoffeeAdditions.MILK);
-            case "SUGAR", "Sugar", "sugar" -> coffeeAdditions.add(CoffeeAdditions.SUGAR);
-            case "CINNAMON", "Cinnamon", "cinnamon" -> coffeeAdditions.add(CoffeeAdditions.CINNAMON);
-            case "COFFEE CREAM", "Coffee cream", "coffee cream" -> coffeeAdditions.add(CoffeeAdditions.COFFEE_CREAM);
-            default -> {
+        System.out.println("Choose additions (until enter stop):");
+        String addition;
+        do {
+            switch (addition = scanner.nextLine()) {
+                case "MILK", "Milk", "milk" -> coffeeAdditions.add(CoffeeAdditions.MILK);
+                case "SUGAR", "Sugar", "sugar" -> coffeeAdditions.add(CoffeeAdditions.SUGAR);
+                case "CINNAMON", "Cinnamon", "cinnamon" -> coffeeAdditions.add(CoffeeAdditions.CINNAMON);
+                case "COFFEE CREAM", "Coffee cream", "coffee cream" -> coffeeAdditions.add(CoffeeAdditions.COFFEE_CREAM);
+                default -> {
+                }
             }
-        }
+        } while (!addition.equals("stop"));
+
         System.out.println("Your choice: " + coffeeAdditions);
 
         return coffeeAdditions;

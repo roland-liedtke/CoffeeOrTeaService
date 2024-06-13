@@ -31,6 +31,6 @@ public class Main {
             drinkInterface = new TeaService();
         }
 
-        SavingFileService.saveOrder(drinkInterface.order());
+        SavingFileService.saveOrder(drinkInterface.order(drinkType));
     }
 }
