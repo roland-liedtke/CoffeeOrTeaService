@@ -4,6 +4,7 @@ import me.rolandliedtke.interfaces.drink.DrinkAdditions;
 import me.rolandliedtke.interfaces.drink.DrinkInterface;
 import me.rolandliedtke.model.coffee.CoffeeAdditions;
 import me.rolandliedtke.model.drink.DrinkSize;
+import me.rolandliedtke.model.drink.DrinkType;
 
 import java.util.*;
 
@@ -15,8 +16,19 @@ public class CoffeeService implements DrinkInterface {
     public List<DrinkAdditions> chooseAdditions() {
         List<DrinkAdditions> coffeeAdditions = new ArrayList<>();
 
-        // Zaimplementuj dodawanie dodatków
-        coffeeAdditions.add(CoffeeAdditions.MILK);
+        System.out.println("Available additions: ");
+
+        // przenieś do prywatnej metody
+        Arrays.stream(CoffeeAdditions.values()).forEach(System.out::println);
+
+        switch (scanner.nextLine()) {
+            case "MILK", "Milk", "milk" -> coffeeAdditions.add(CoffeeAdditions.MILK);
+            case "SUGAR", "Sugar", "sugar" -> coffeeAdditions.add(CoffeeAdditions.SUGAR);
+            default -> {
+            }
+        };
+        System.out.println("Your choice: " + coffeeAdditions);
+
         return coffeeAdditions;
     }
 

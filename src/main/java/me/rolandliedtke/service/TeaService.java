@@ -4,6 +4,7 @@ import me.rolandliedtke.interfaces.drink.DrinkInterface;
 import me.rolandliedtke.interfaces.drink.DrinkAdditions;
 import me.rolandliedtke.model.coffee.CoffeeAdditions;
 import me.rolandliedtke.model.drink.DrinkSize;
+import me.rolandliedtke.model.tea.TeaAdditions;
 
 import java.util.*;
 
@@ -13,11 +14,22 @@ public class TeaService implements DrinkInterface {
 
     @Override
     public List<DrinkAdditions> chooseAdditions() {
-        List<DrinkAdditions> coffeeAdditions = new ArrayList<>();
+        List<DrinkAdditions> teaAdditions = new ArrayList<>();
 
-        // Zaimplementuj dodawanie dodatków
-        coffeeAdditions.add(CoffeeAdditions.MILK);
-        return coffeeAdditions;
+        System.out.println("Available additions: ");
+
+        // przenieś do prywatnej metody
+        Arrays.stream(TeaAdditions.values()).forEach(System.out::println);
+
+        switch (scanner.nextLine()) {
+            case "HONEY", "Honey", "honey" -> teaAdditions.add(TeaAdditions.HONEY);
+            case "LEMON", "Lemon", "lemon" -> teaAdditions.add(TeaAdditions.LEMON);
+            default -> {
+            }
+        };
+        System.out.println("Your choice: " + teaAdditions);
+
+        return teaAdditions;
     }
 
     @Override

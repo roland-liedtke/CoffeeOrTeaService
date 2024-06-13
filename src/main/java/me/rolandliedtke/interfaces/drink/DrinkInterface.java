@@ -1,6 +1,5 @@
 package me.rolandliedtke.interfaces.drink;
 
-import me.rolandliedtke.interfaces.drink.DrinkAdditions;
 import me.rolandliedtke.model.drink.Drink;
 import me.rolandliedtke.model.drink.DrinkSize;
 import me.rolandliedtke.model.drink.DrinkType;
@@ -8,7 +7,7 @@ import me.rolandliedtke.model.drink.DrinkType;
 import java.util.List;
 import java.util.Scanner;
 
-public interface DrinkInterface {
+public interface DrinkInterface{
 
     default String order() {
 
@@ -24,11 +23,13 @@ public interface DrinkInterface {
 
         System.out.println("Choose a size (S, M, L):");
 
-        return switch (new Scanner(System.in).nextLine()) {
+        DrinkSize drinkSize = switch (new Scanner(System.in).nextLine()) {
             case "S" -> DrinkSize.S;
             case "L" -> DrinkSize.L;
             default -> DrinkSize.M;
         };
+        System.out.println("Your choice: " + drinkSize);
+        return drinkSize;
     };
 
     List<DrinkAdditions> chooseAdditions();
