@@ -13,9 +13,9 @@ calculatePrice().
  - [x] W metodzie chooseAdditions użytkownik powinien mieć możliwość wyboru tylko dodatków, przewidzianych do danego typu napoju.
  - [x] Metoda order() powinna posiadać tylko jedną implementację na cały projekt.
  - [ ] Cena napoju uzależniona jest od rozmiaru (szczegóły dowolne), na herbatę natomiast są zniżki.
- - [ ] Stwórz Interface o nazwie „Reduce Interface”, który przyjmuje kod (String) i zwraca % zniżki na zamówienie.
+ - [x] Stwórz Interface o nazwie „Reduce Interface”, który przyjmuje kod (String) i zwraca % zniżki na zamówienie.
  - [ ] Następnie Stwórz drugi projekt, a w nim serwis który będzie implementował ten Interface i tam obsłuż wyjątki takie jak „Niepoprawny kod” albo „Kod uległ przedawnieniu”.
- - [ ] Listę kodów i zniżki procentowe możesz zapisać w formie enumów.
+ - [x] Listę kodów i zniżki procentowe możesz zapisać w formie enumów.
  - [ ] Po każdym zamówieniu dopisz do pliku Orders.txt dane nowego zamówienia, wraz z naliczoną zniżką.
- - [ ] Jak połączyć dwa projekty ze sobą?
+ - [x] Jak połączyć dwa projekty ze sobą?
 W obu projektach wykonaj mvn clean compile install package co wygeneruje je w lokalnym repozytorium Mavena. Następnie w plikach pom.xml dodaj do nich nawzajem dependencję. 
